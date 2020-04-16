@@ -1,3 +1,2 @@
-# ngrx-example-app-1-ws2ddj
-
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/ngrx-example-app-1-ws2ddj)
+# NgRx Example app using modern es6 syntax
+I updated the example ngrx app to match the latest es6 syntax and latest dependicies

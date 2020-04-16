@@ -1,5 +1,4 @@
 import 'jest-preset-angular';
-global['CSS'] = null;
 
 /**
  * ISSUE: https://github.com/angular/material2/issues/7101
