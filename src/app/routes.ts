@@ -8,6 +8,10 @@ export const routes: Routes = [
     path: 'books',
     loadChildren: './books/books.module#BooksModule',
     canActivate: [AuthGuard],
+  }, {
+    path: 'jokes',
+    loadChildren: './jokes/jokes.module#JokesModule',
+    canActivate: [AuthGuard],
   },
   { path: '**', component: NotFoundPageComponent },
 ];

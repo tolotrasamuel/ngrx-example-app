@@ -19,6 +19,9 @@ import {Logout} from '../../auth/root-store/login-page-store/actions';
         <bc-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/books/find" icon="search" hint="Find your next book!">
           Browse Books
         </bc-nav-item>
+        <bc-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/jokes" icon="tag_faces" hint="A Nerdy Joke!">
+          Jokes!
+        </bc-nav-item>
         <bc-nav-item (navigate)="closeSidenav()" *ngIf="!(loggedIn$ | async)">
           Sign In
         </bc-nav-item>
