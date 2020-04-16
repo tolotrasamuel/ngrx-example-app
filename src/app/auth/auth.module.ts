@@ -9,9 +9,9 @@ import { LoginFormComponent } from './components/login-form.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { AuthEffects } from './effects/auth.effects';
-import { reducers } from './reducers';
 import { MaterialModule } from '../material';
+import {AuthEffects} from './root-store/auth-info-store/effects';
+import {reducers} from './root-store/reducer';
 
 export const COMPONENTS = [LoginPageComponent, LoginFormComponent];
 

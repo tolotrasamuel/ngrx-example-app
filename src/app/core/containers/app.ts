@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-
-import * as fromRoot from '../../reducers';
-import * as fromAuth from '../../auth/reducers';
 import * as layout from '../actions/layout';
-import * as Auth from '../../auth/actions/auth';
+import * as fromRoot from '../../reducers';
+
+import * as fromAuth from '../../auth/root-store/selectors';
+import {Logout} from '../../auth/root-store/login-page-store/actions';
 
 @Component({
   selector: 'bc-app',
@@ -64,6 +64,6 @@ export class AppComponent {
   logout() {
     this.closeSidenav();
 
-    this.store.dispatch(new Auth.Logout());
+    this.store.dispatch(new Logout());
   }
 }

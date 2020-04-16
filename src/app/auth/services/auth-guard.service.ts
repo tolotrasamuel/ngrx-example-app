@@ -3,19 +3,20 @@ import { CanActivate } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import * as Auth from '../actions/auth';
-import * as fromAuth from '../reducers';
+import * as fromAuth from '../root-store/selectors';
+import {LoginRedirect} from '../root-store/login-page-store/actions';
+import {AuthState} from '../root-store/state';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private store: Store<fromAuth.State>) {}
+  constructor(private store: Store<AuthState>) {}
 
   canActivate(): Observable<boolean> {
     return this.store.pipe(
       select(fromAuth.getLoggedIn),
       map(authed => {
         if (!authed) {
-          this.store.dispatch(new Auth.LoginRedirect());
+          this.store.dispatch(new LoginRedirect());
           return false;
         }
 
