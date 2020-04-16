@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Book } from '../../books/models/book';
+import { Book } from '../features/books/models/book';
 
 @Injectable()
 export class GoogleBooksService {

@@ -1,11 +1,12 @@
 import { Observable } from 'rxjs';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import * as layout from '../actions/layout';
-import * as fromRoot from '../../reducers';
+import * as fromRoot from '../root-store/selectors'
 
-import * as fromAuth from '../../auth/root-store/selectors';
-import {Logout} from '../../auth/root-store/login-page-store/actions';
+import * as fromAuth from '../features/auth/root-store/selectors'
+import {RootState} from '../root-store/state';
+import {CloseSidenav, OpenSidenav} from '../root-store/layout-store/actions';
+import { Logout } from '../features/auth/root-store/login-page-store/actions';
 
 @Component({
   selector: 'bc-app',
@@ -41,7 +42,7 @@ export class AppComponent {
   showSidenav$: Observable<boolean>;
   loggedIn$: Observable<boolean>;
 
-  constructor(private store: Store<fromRoot.State>) {
+  constructor(private store: Store<RootState>) {
     /**
      * Selectors can be applied with the `select` operator which passes the state
      * tree to the provided selector
@@ -57,11 +58,11 @@ export class AppComponent {
      * updates and user interaction through the life of our
      * application.
      */
-    this.store.dispatch(new layout.CloseSidenav());
+    this.store.dispatch(new CloseSidenav());
   }
 
   openSidenav() {
-    this.store.dispatch(new layout.OpenSidenav());
+    this.store.dispatch(new OpenSidenav());
   }
 
   logout() {
